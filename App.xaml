@@ -1,0 +1,104 @@
+            <FontFamily x:Key="SegoeFluentIcons">pack://application:,,,/fonts/#Segoe Fluent Icons</FontFamily>
+
+         <Style x:Key="menuButton" TargetType="Button">
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="Foreground" Value="#000000" />
+                <Setter Property="Height" Value="42" />
+                <Setter Property="FontSize" Value="14" />
+                <!-- <Setter Property="FontWeight" Value="Bold"/> -->
+                <Setter Property="Width" Value="162" />
+                <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+                <Setter Property="Tag" Value="collapse" />
+
+                <Setter Property="Template">
+
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" CornerRadius="5">
+                                <ContentPresenter HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                                                  Margin="0 0 0 0" />
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Background" Value="#F5F5F5" />
+
+                        <Setter Property="Tag" Value="Visible" />
+                    </Trigger>
+                    <Trigger Property="Selector.IsSelected" Value="True">
+                        <!-- <Setter Property="Foreground" Value="#2979ff"></Setter> -->
+                        <!-- <Setter Property="Background" Value="#2979FF"/> -->
+                        <Setter Property="Tag" Value="Visible" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+    <Style x:Key="NavigationItemSelectBack" TargetType="{x:Type Border}">
+                <Setter Property="Width" Value="0" />
+                <Setter Property="Background" Value="#EEEEEE" />
+                <Style.Triggers>
+                    <Trigger Property="Selector.IsSelected" Value="True">
+                        <Trigger.EnterActions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetProperty="Width"
+                                                     To="162" Duration="0:0:0.8">
+                                        <DoubleAnimation.EasingFunction>
+                                            <CircleEase EasingMode="EaseOut" />
+                                        </DoubleAnimation.EasingFunction>
+                                    </DoubleAnimation>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </Trigger.EnterActions>
+                        <Trigger.ExitActions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetProperty="Width"
+                                                     To="0" Duration="0:0:0.8">
+                                        <DoubleAnimation.EasingFunction>
+                                            <CircleEase EasingMode="EaseOut" />
+                                        </DoubleAnimation.EasingFunction>
+                                    </DoubleAnimation>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </Trigger.ExitActions>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+            <Style x:Key="NavigationItemSelectIndicator" TargetType="{x:Type Border}">
+                <Setter Property="Height" Value="0" />
+                <Setter Property="Background" Value="#2979ff" />
+                <Style.Triggers>
+                    <Trigger Property="Selector.IsSelected" Value="True">
+                        <Trigger.EnterActions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetProperty="Height"
+                                                     To="20" Duration="0:0:0.5">
+                                        <DoubleAnimation.EasingFunction>
+                                            <CircleEase EasingMode="EaseOut" />
+                                        </DoubleAnimation.EasingFunction>
+                                    </DoubleAnimation>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </Trigger.EnterActions>
+                        <Trigger.ExitActions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetProperty="Height"
+                                                     To="0" Duration="0:0:0.5">
+                                        <DoubleAnimation.EasingFunction>
+                                            <CircleEase EasingMode="EaseOut" />
+                                        </DoubleAnimation.EasingFunction>
+                                    </DoubleAnimation>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </Trigger.ExitActions>
+                    </Trigger>
+                </Style.Triggers>
+
+
+            </Style>
